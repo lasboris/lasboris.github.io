@@ -3,193 +3,339 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boris Laskine. Teaching English online. Worldwide.</title>
+  <title>Boris Laskine. Teaching English online. Worldwide</title>
+  <meta name="description" content="Эффективные и удобные занятия английским языком онлайн для школьников и взрослых">
+
+  <!-- Font Awesome для иконки Telegram -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yu0Ld7w8yU4MwQJ2k0vN1Z1qjV1uU7qZxQvJ3Z4K9Xh3mYvK1aJ5N6F7q4x6qX8Y2Q6J6K7H7Z4M5q1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
     /* Общие стили */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: #333;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
       background-color: #fff;
     }
-
-    h1, h2 {
-      color: #2c3e50;
+    main {
+      padding: 2rem 0;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #561414;
     }
 
-    /* Контейнер главного блока */
-    .hero {
-      display: flex;
-      align-items: flex-start;
-      gap: 30px;
-      margin: 40px 0;
+    /* Логотип */
+    .site-logo {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .site-logo h1 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: #2E2E5A;
+      margin: 0;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+      position: relative;
+      display: inline-block;
+    }
+    .site-logo h1::after {
+      content: "BORIS ENGLISH";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: rgba(46, 46, 90, 0.06);
+      z-index: -1;
+      transform: translate(2px, 2px);
+    }
+    .site-logo p {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      color: #561414;
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 600px) {
+      .site-logo h1 {
+        font-size: 1.8rem;
+      }
+      .site-logo p {
+        font-size: 0.9rem;
+      }
+      main {
+        padding: 1.5rem 0;
+      }
+    }
+
+    /* Отзывы */
+    .testimonials {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    .testimonials h2 {
+      font-size: 1.8rem;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial {
+      background: #f9f7f5;
+      padding: 1.4rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(20px);
     }
-
-    .hero.appear {
+    .testimonial.animate {
       opacity: 1;
       transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
-    /* Фото */
-    .photo {
-      width: 180px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+    .testimonial:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
-
-    .photo:hover {
-      box-shadow: 0 0 20px 8px rgba(86, 20, 20, 0.25); /* тёплое свечение */
-      transform: scale(1.02);
+    .testimonial blockquote {
+      margin: 0 0 1rem 0;
+      font-style: italic;
+      color: #333;
+      line-height: 1.6;
+      position: relative;
     }
-
-    .content {
-      flex: 1;
+    .testimonial blockquote::before {
+      content: "“";
+      font-size: 2.5rem;
+      color: #d0c0b0;
+      position: absolute;
+      top: -0.8rem;
+      left: -0.5rem;
     }
-
-    /* Кнопки */
-    .btn {
-      display: inline-block;
-      background-color: #561414;
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 25px;
+    .testimonial p {
+      margin: 0;
       font-weight: 600;
-      box-shadow: 0 4px 8px rgba(86, 20, 20, 0.3);
-      transition: all 0.3s ease;
-      margin-top: 10px;
+      color: #561414;
     }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(86, 20, 20, 0.4);
+    .testimonial em {
+      font-weight: normal;
+      color: #777;
+      font-size: 0.9rem;
     }
-
-    /* Поля формы */
-    input,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: #561414;
+    .show-more-btn {
+      display: block;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      background: #561414;
       color: white;
       border: none;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-weight: 600;
+      border-radius: 30px;
+      font-size: 1rem;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(86, 20, 20, 0.3);
-      transition: all 0.3s ease;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .show-more-btn:hover {
+      background: #401010;
+      transform: scale(1.03);
+    }
+    .hidden {
+      display: none;
     }
 
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(86, 20, 20, 0.4);
+    /* Telegram иконка */
+    .telegram-contact {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .telegram-contact a {
+      display: inline-block;
+      font-size: 2.2rem;
+      color: #0088cc;
+      transition: all 0.3s ease;
+    }
+    .telegram-contact a:hover {
+      color: #005580;
+      transform: scale(1.15);
+      text-shadow: 0 2px 6px rgba(0,136,204,0.3);
     }
 
     /* Подвал */
     footer {
       text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #7f8c8d;
+      padding: 1.5rem;
+      background: #f5f3f1;
+      font-size: 0.9rem;
+      color: #666;
     }
 
-    /* Адаптивность для мобильных */
-    @media (max-width: 600px) {
-      .hero {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-      }
-
-      .photo {
-        width: 150px;
-        margin: 0 auto;
-      }
-
-      .btn {
-        margin-top: 15px;
-        display: inline-block;
-      }
-
-      input,
-      textarea {
-        font-size: 16px; /* предотвращает зум на iOS */
-      }
+    /* Кнопки (для примера — если у тебя есть другие кнопки) */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background: #561414;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #401010;
     }
   </style>
 </head>
 <body>
 
-  <!-- Главный блок с анимацией -->
-  <div class="hero" id="hero">
-    <img src="lasboris-2512.png" alt="lasboris teaching online" class="photo" />
-
-    <div class="content">
-      <h1>Привет 🤩 Я Борис Ласкин</h1>
-      <h2>Частный репетитор • Переводчик</h2>
-
-      <a href="https://t.me/englishlasboris" target="_blank" class="btn">
-        🔅 Мой блог в Telegram
-      </a>
-
-      <p>Скажу вам как есть, дорогие друзья: абсолютно не имеет значения, в каком городе вы живёте. Я веду <strong>онлайн-обучение</strong> английскому языку по всему миру — просто, понятно и с улыбкой. 😊</p>
-      <p>Это удобно. И это эффективно.</p>
-      <p>Мой девиз: <strong>Take action. Consistency always wins.</strong></p>
-      <p>Хотите попробовать? Оставьте <strong>заявку</strong> ниже, и я свяжусь с вами. Обсудим время встречи для пробного урока.</p>
-
-      <!-- Форма через Formspree (ничего не меняем!) -->
-      <form
-        action="https://formspree.io/f/mzznwkrz"
-        method="POST"
-        style="margin-top: 20px;"
-      >
-        <input type="text" name="name" placeholder="Ваше имя" required />
-        <input type="email" name="email" placeholder="Ваш email" required />
-        <textarea name="message" placeholder="Комментарий (например, ваш уровень и цель)" rows="4"></textarea>
-
-        <button type="submit">Отправить заявку</button>
-      </form>
+  <header>
+    <div class="site-logo">
+      <h1>BORIS LASKINE | LANGUAGE EXPERT</h1>
+      <p>С английским по жизни</p>
     </div>
-  </div>
+  </header>
+
+  <main>
+    <!-- Пример: краткое описание -->
+    <section style="text-align: center; max-width: 700px; margin: 0 auto; padding: 0 1.5rem;">
+      <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+        Практический разговорный английский для школьников, взрослых и профессионалов.<br>
+        Занятия онлайн — индивидуально, с поддержкой и без страха ошибиться.
+      </p>
+      <a href="https://t.me/lasboris" class="btn" target="_blank">Мой блог в Telegram</a>
+    </section>
+
+    <!-- Форма заявки — замени на свою Formspree -->
+    <section style="text-align: center; max-width: 500px; margin: 2rem auto; padding: 0 1.5rem;">
+      <h2>Отправить заявку</h2>
+      <!-- ⬇️ Вставь сюда свою форму Formspree -->
+      <form action="https://formspree.io/f/mzznwkrz" method="POST">
+        <input type="text" name="name" placeholder="Ваше имя" required style="width: 100%; padding: 0.8rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 6px;">
+        <input type="email" name="email" placeholder="Email или Telegram" required style="width: 100%; padding: 0.8rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 6px;">
+        <textarea name="message" placeholder="Комментарий (например, ваш уровень и цель)" rows="4" style="width: 100%; padding: 0.8rem; margin: 0.5rem 0; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+        <button type="submit" class="btn" style="margin-top: 1rem;">Отправить заявку</button>
+      </form>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="testimonials" id="testimonials">
+      <h2>Отзывы учеников и родителей</h2>
+
+      <div class="testimonials-grid" id="visibleTestimonials">
+        <article class="testimonial">
+          <blockquote>Моей дочери очень нравится заниматься с Борисом, он располагает, она не боится ошибиться и поэтому учиться ей не страшно, у дочки увеличился словарный запас, улучшился результат при работе в классе. Занятия проходят очень динамично.</blockquote>
+          <p><strong>Екатерина Тихомирова</strong><br><em>Мама ученицы</em></p>
+        </article>
+
+        <article class="testimonial">
+          <blockquote>Борис Алексеевич, Выражаю огромную благодарность за обучение и самое главное предоставление профессиональной информации и литературы в сфере обучения моего сына на механика в колледже #50 г. Москва, г. Зеленоград. При вашем активном участии, надеюсь, эти учебные программы помогут стать преимуществом при поступлении в институт МАДИ г. Москва, метро Аэропорт. Пусть маленькими шагами, но с прямолинейным ходом, идёт к своей мечте работать в команде Формулы 1, с вашей помощью!!!!</blockquote>
+          <p><strong>Андрей Михайлович Ильин</strong><br><em>Папа ученика</em></p>
+        </article>
+
+        <article class="testimonial">
+          <blockquote>Был очень хороший опыт работы по Skype с Борисом Алексеевичем. Преподаватель доступно даёт знания. Уже был подобный успешный опыт 8 лет назад с другим репетитором, но с тех пор языковой практики не было и все забыто. Поэтому разговорный английский изучала практически с нуля. Из-за загруженного рабочего графика было сложно, но в целом, мне всё очень понравилось. Спасибо большое Вам!</blockquote>
+          <p><strong>Ксения Литвинова</strong><br><em>Языковая практика</em></p>
+        </article>
+
+        <article class="testimonial">
+          <blockquote>Борис, Большое спасибо Вам за уроки, профессиональный подход к делу и за терпение в отношении Глеба! Мы очень рады нашему знакомству и надеемся на то, что ваши занятия продлятся ещё долго.</blockquote>
+          <p><strong>Ольга Валентиновна</strong><br><em>Мама ученика</em></p>
+        </article>
+      </div>
+
+      <div class="testimonials-grid hidden" id="hiddenTestimonials">
+        <article class="testimonial">
+          <blockquote>Борис! Я Вам очень благодарна! Вы меня выручили. Перевод замечательный. Я отправила перевод по 50–60 адресам всему миру (участникам совещания) и коллегам, курирующим тему, они отметили высокое качество перевода.</blockquote>
+          <p><strong>Инна Данилычева</strong><br><em>Международная конференция</em></p>
+        </article>
+
+        <article class="testimonial">
+          <blockquote>Я заметила, что словарный запас стал обширнее у Арсения! Спасибо Вам! Самое главное для меня, что ребёнок с удовольствием занимается!</blockquote>
+          <p><strong>Ирина Копысова</strong><br><em>Мама ученика</em></p>
+        </article>
+
+        <article class="testimonial">
+          <blockquote>Борис Алексеевич, спасибо Вам за оперативность и качество перевода конкурсной документации для проведения соревнований на титул лучшего автомеханика!</blockquote>
+          <p><strong>Павел Клюкин</strong><br><em>Перевод документации</em></p>
+        </article>
+
+        <article class="testimonial">
+          <blockquote>Спасибо вам огромное за наши занятия в Скайпе. Чувствую, что стала увереннее в английском языке. Теперь мне легко будет общаться в Канаде. Особенно мне помогли тексты Hot Topics. Отличная практика разговорного языка.</blockquote>
+          <p><strong>Ирена Кербалеаева</strong><br><em>Подготовка к переезду в Канаду</em></p>
+        </article>
+
+        <article class="testimonial">
+          <blockquote>Мы очень волновались перед экзаменом, ведь это первое испытание для Маши, да ещё и английский... Мы получили "отлично"! Спасибо Вам, что поддерживали и готовились вместе, спасибо за ценные советы, которые нам были очень важны.</blockquote>
+          <p><strong>Наталия Рунова</strong><br><em>Мама ученицы</em></p>
+        </article>
+
+        <article class="testimonial">
+          <blockquote>Борис! В первую очередь я хочу Вас поблагодарить за Вашу помощь Жене в английском, его очень хвалила школьная учительница и я сама тоже заметила улучшения. Большое спасибо! Он получил отлично за триместр и за экзамен, чему мы все очень рады!</blockquote>
+          <p><strong>Анна Патваканова</strong><br><em>Мама ученика</em></p>
+        </article>
+      </div>
+
+      <button id="showMoreBtn" class="show-more-btn">Показать ещё</button>
+    </section>
+
+    <!-- Иконка Telegram (как контакт) -->
+    <div class="telegram-contact">
+      <a href="https://t.me/lasboris" target="_blank" aria-label="Написать в Telegram">
+        <i class="fab fa-telegram"></i>
+      </a>
+    </div>
+  </main>
 
   <footer>
-    © 2025 englishlasboris. Все права за мной. А ваша конфиденциальность — под полной защитой.
+    © 2025 englishlasboris. Все права за мной.<br>
+    А ваша конфиденциальность — под полной защитой.
   </footer>
 
-  <!-- JavaScript для анимации при прокрутке -->
+  <!-- Скрипты -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const hero = document.getElementById('hero');
+    document.addEventListener('DOMContentLoaded', () => {
+      // Анимация отзывов при прокрутке
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        });
+      }, { threshold: 0.1 });
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              hero.classList.add('appear');
-            }
+      document.querySelectorAll('.testimonial').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Кнопка "Показать ещё"
+      const showMoreBtn = document.getElementById('showMoreBtn');
+      const hiddenTestimonials = document.getElementById('hiddenTestimonials');
+
+      if (showMoreBtn && hiddenTestimonials) {
+        showMoreBtn.addEventListener('click', () => {
+          hiddenTestimonials.classList.remove('hidden');
+          showMoreBtn.style.display = 'none';
+
+          // Анимация новых отзывов
+          hiddenTestimonials.querySelectorAll('.testimonial').forEach((el, i) => {
+            setTimeout(() => el.classList.add('animate'), i * 100);
           });
-        },
-        { threshold: 0.1 }
-      );
-
-      observer.observe(hero);
+        });
+      }
     });
   </script>
 </body>
