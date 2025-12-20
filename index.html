@@ -89,7 +89,9 @@
       box-sizing: border-box;
     }
 
-    button {
+    /* Кнопка формы — выровнена по левому краю */
+    button.submit-btn {
+      display: inline-block;
       background-color: #561414;
       color: white;
       border: none;
@@ -99,9 +101,10 @@
       cursor: pointer;
       box-shadow: 0 4px 8px rgba(86, 20, 20, 0.3);
       transition: all 0.3s ease;
+      margin: 0;
     }
 
-    button:hover {
+    button.submit-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(86, 20, 20, 0.4);
     }
@@ -286,7 +289,7 @@
         <input type="email" name="email" placeholder="Ваш email или Telegram" required />
         <textarea name="message" placeholder="Комментарий (например, ваш уровень и цель)" rows="4"></textarea>
 
-        <!-- Согласие на обработку ПД — исправленный блок -->
+        <!-- Согласие на обработку ПД -->
         <label class="privacy-checkbox">
           <input type="checkbox" name="consent" required />
           <span>
@@ -297,7 +300,7 @@
           </span>
         </label>
 
-        <button type="submit">Отправить заявку</button>
+        <button type="submit" class="submit-btn">Отправить заявку</button>
       </form>
     </div>
   </div>
