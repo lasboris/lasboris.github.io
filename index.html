@@ -106,7 +106,7 @@
       box-shadow: 0 6px 12px rgba(86, 20, 20, 0.4);
     }
 
-    /* Чекбокс согласия — выравнивание по левому краю */
+    /* Чекбокс согласия — исправленная версия */
     .privacy-checkbox {
       display: flex;
       align-items: flex-start;
@@ -115,12 +115,18 @@
       font-size: 0.9rem;
       color: #555;
       text-align: left;
+      flex-wrap: wrap;
     }
     .privacy-checkbox input {
-      margin: 4px 0 0 0;
+      margin-top: 4px;
       flex-shrink: 0;
       transform: scale(1.2);
       cursor: pointer;
+    }
+    .privacy-checkbox span {
+      flex: 1;
+      line-height: 1.4;
+      min-width: 0;
     }
     .privacy-checkbox a {
       color: #561414;
@@ -280,13 +286,15 @@
         <input type="email" name="email" placeholder="Ваш email или Telegram" required />
         <textarea name="message" placeholder="Комментарий (например, ваш уровень и цель)" rows="4"></textarea>
 
-        <!-- Согласие на обработку ПД -->
+        <!-- Согласие на обработку ПД — исправленный блок -->
         <label class="privacy-checkbox">
           <input type="checkbox" name="consent" required />
-          Я даю согласие на 
-          <a href="https://lasboris.tilda.ws/agreement" target="_blank">обработку персональных данных</a> 
-          в соответствии с 
-          <a href="https://lasboris.tilda.ws/privacy-policy" target="_blank">политикой конфиденциальности</a>.
+          <span>
+            Я даю согласие на 
+            <a href="https://lasboris.tilda.ws/agreement" target="_blank">обработку персональных данных</a> 
+            в соответствии с 
+            <a href="https://lasboris.tilda.ws/privacy-policy" target="_blank">политикой конфиденциальности</a>.
+          </span>
         </label>
 
         <button type="submit">Отправить заявку</button>
