@@ -423,5 +423,12 @@
       }
     });
   </script>
+  <script>
+  document.addEventListener('click', function(e) {
+    if (e.target.closest && e.target.closest('a[href*="t.me"]')) {
+      ym(105985167, 'reachGoal', 'telegram_click');
+    }
+  });
+</script>
 </body>
 </html>
