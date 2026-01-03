@@ -1,112 +1,43 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta name="description" content="Онлайн-уроки английского по всему миру — просто, понятно и с улыбкой. Пробный урок бесплатно. Преподаватель — Борис Ласкин.">
-  <!-- Open Graph для Telegram, WhatsApp, Facebook и др. -->
-<meta property="og:title" content="Борис Ласкин — онлайн-репетитор английского">
-<meta property="og:description" content="Онлайн-уроки английского по всему миру — просто, понятно и с улыбкой. Пробный урок бесплатно.">
-<meta property="og:url" content="https://lasboris.online/">
-<meta property="og:type" content="website">
-  <meta property="og:image" content="https://lasboris.online/img/preview.png">
   <meta charset="UTF-8" />
-  <!-- Cookie Consent Banner -->
-<div id="cookie-banner" style="
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #222;
-  color: #fff;
-  padding: 16px;
-  text-align: center;
-  font-size: 14px;
-  z-index: 9999;
-  display: none;
-">
-  Мы используем cookies для аналитики, чтобы улучшать вебсайт. При этом мы ценим вашу приватность.
-  <a href="https://lasboris.tilda.ws/privacy-policy" target="_blank" style="color: #4fc3f7;">Подробнее</a>  
-  <button id="accept-cookies" style="
-    margin-left: 12px;
-    padding: 4px 12px;
-    background: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  ">Принять</button>
-</div>
-
-<script>
-  // Показываем баннер, если согласие ещё не дано
-  if (!localStorage.getItem('cookieConsent')) {
-    document.getElementById('cookie-banner').style.display = 'block';
-  }
-
-  // При нажатии "Принять" — сохраняем согласие и скрываем баннер
-  document.getElementById('accept-cookies').addEventListener('click', function() {
-  localStorage.setItem('cookieConsent', 'true');
-  
-  // Плавное исчезновение
-  const banner = document.getElementById('cookie-banner');
-  banner.style.opacity = '0';
-  banner.style.transition = 'opacity 0.4s ease';
-  setTimeout(() => {
-    banner.style.display = 'none';
-  }, 400);
-  
-  // Загружаем GA4
-  loadGA4();
-});
-
-  // Функция загрузки Google Analytics 4
-  function loadGA4() {
-    if (window.gtag) return; // уже загружено
-
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager)&&(window).com/gtag/js?id=G-VH1RV0DC62';
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function(){dataLayer.push(arguments);};
-    gtag('js', new Date());
-    gtag('config', 'G-VH1RV0DC62');
-  }
-
-  // Если согласие уже было — грузим GA4 сразу
-  if (localStorage.getItem('cookieConsent') === 'true') {
-    loadGA4();
-  }
-</script>
-  <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-  (function(m,e,t,r,i,k,a){
-    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();
-    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-  })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=105985167', 'ym');
-
-  ym(105985167, 'init', {
-    ssr: true,
-    webvisor: true,
-    clickmap: true,
-    ecommerce: "dataLayer",
-    accurateTrackBounce: true,
-    trackLinks: true
-  });
-</script>
-<noscript>
-  <div>
-    <img src="https://mc.yandex.ru/watch/105985167" style="position:absolute; left:-9999px;" alt="" />
-  </div>
-</noscript>
-<!-- /Yandex.Metrika counter -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boris Laskine. Teaching English online. Worldwide</title>
+  <meta name="description" content="Онлайн-уроки английского по всему миру — просто, понятно и с улыбкой. Пробный урок бесплатно. Преподаватель — Борис Ласкин.">
 
-  <!-- Font Awesome для иконки Telegram -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Борис Ласкин — онлайн-репетитор английского">
+  <meta property="og:description" content="Онлайн-уроки английского по всему миру — просто, понятно и с улыбкой. Пробный урок бесплатно.">
+  <meta property="og:url" content="https://lasboris.online/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lasboris.online/img/preview.png">
+
+  <!-- Yandex.Metrica -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=105985167', 'ym');
+
+    ym(105985167, 'init', {
+      ssr: true,
+      webvisor: true,
+      clickmap: true,
+      ecommerce: "dataLayer",
+      accurateTrackBounce: true,
+      trackLinks: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/105985167" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <title>Boris Laskine. Teaching English online. Worldwide</title>
 
   <style>
     /* Общие стили */
@@ -124,7 +55,6 @@
       color: #2c3e50;
     }
 
-    /* Контейнер главного блока */
     .hero {
       display: flex;
       align-items: flex-start;
@@ -140,7 +70,6 @@
       transform: translateY(0);
     }
 
-    /* Фото */
     .photo {
       width: 180px;
       height: auto;
@@ -158,7 +87,6 @@
       flex: 1;
     }
 
-    /* Кнопки */
     .btn {
       display: inline-block;
       background-color: #561414;
@@ -177,7 +105,6 @@
       box-shadow: 0 6px 12px rgba(86, 20, 20, 0.4);
     }
 
-    /* Поля формы */
     input,
     textarea {
       width: 100%;
@@ -189,7 +116,6 @@
       box-sizing: border-box;
     }
 
-    /* Кнопка формы — выровнена по левому краю */
     button.submit-btn {
       display: inline-block;
       background-color: #561414;
@@ -209,7 +135,6 @@
       box-shadow: 0 6px 12px rgba(86, 20, 20, 0.4);
     }
 
-    /* Чекбокс согласия — исправленная версия */
     .privacy-checkbox {
       display: flex;
       align-items: flex-start;
@@ -239,7 +164,6 @@
       color: #401010;
     }
 
-    /* === Отзывы === */
     .testimonials {
       margin: 40px 0;
     }
@@ -282,7 +206,6 @@
       font-size: 0.85rem;
     }
 
-    /* Кнопка "Показать ещё" */
     .show-more-btn {
       display: block;
       margin: 25px auto 0;
@@ -302,12 +225,10 @@
       box-shadow: 0 6px 12px rgba(86, 20, 20, 0.4);
     }
 
-    /* Скрытие блока */
     .hidden {
       display: none;
     }
 
-    /* Иконка Telegram внизу */
     .telegram-contact {
       text-align: center;
       margin: 30px 0;
@@ -323,7 +244,6 @@
       transform: scale(1.1);
     }
 
-    /* Подвал */
     footer {
       text-align: center;
       margin-top: 40px;
@@ -331,29 +251,24 @@
       color: #7f8c8d;
     }
 
-    /* Адаптивность */
     @media (max-width: 600px) {
       .hero {
         flex-direction: column;
         gap: 20px;
         text-align: center;
       }
-
       .photo {
         width: 150px;
         margin: 0 auto;
       }
-
       .btn {
         margin-top: 15px;
         display: inline-block;
       }
-
       input,
       textarea {
         font-size: 16px;
       }
-
       .testimonials-grid {
         grid-template-columns: 1fr;
       }
@@ -362,7 +277,7 @@
 </head>
 <body>
 
-  <!-- Главный блок с анимацией -->
+  <!-- Главный блок -->
   <div class="hero" id="hero">
     <img src="/img/lasboris-2512.png" alt="lasboris teaching online" class="photo" />
 
@@ -379,7 +294,6 @@
       <p>Мой девиз: <strong>Take action. Consistency always wins.</strong></p>
       <p>Хотите попробовать? Оставьте <strong>заявку</strong> ниже, и я свяжусь с вами. Обсудим время встречи для пробного урока.</p>
 
-      <!-- Форма через Formspree -->
       <form
         action="https://formspree.io/f/mzznwkrz"
         method="POST"
@@ -389,7 +303,6 @@
         <input type="email" name="email" placeholder="Ваш email или Telegram" required />
         <textarea name="message" placeholder="Комментарий (например, ваш уровень и цель)" rows="4"></textarea>
 
-        <!-- Согласие на обработку ПД -->
         <label class="privacy-checkbox">
           <input type="checkbox" name="consent" required />
           <span>
@@ -405,7 +318,7 @@
     </div>
   </div>
 
-  <!-- Отзывы с кнопкой "Показать ещё" -->
+  <!-- Отзывы -->
   <section class="testimonials">
     <h2>Отзывы учеников и родителей</h2>
     <div class="testimonials-grid" id="visibleTestimonials">
@@ -421,7 +334,7 @@
         <div>Был очень хороший опыт работы по Skype с <strong>Борисом Алексеевичем</strong>. Преподаватель доступно даёт знания. Уже был подобный успешный опыт 8 лет назад с другим репетитором, но с тех пор языковой практики не было и все забыто. Поэтому разговорный английский изучала практически с нуля. Из-за загруженного рабочего графика было сложно, но в целом, мне всё очень понравилось. Спасибо большое Вам!</div>
         <p><strong>Ксения ЛИТВИНОВА</strong><br><em>Языковая практика</em></p>
       </div>
-      </div>
+    </div>
 
     <div class="testimonials-grid hidden" id="hiddenTestimonials">
       <div class="testimonial">
@@ -457,7 +370,7 @@
     <button id="showMoreBtn" class="show-more-btn">Показать ещё</button>
   </section>
 
-  <!-- Иконка Telegram (контакт) -->
+  <!-- Telegram иконка -->
   <div class="telegram-contact">
     <a href="https://t.me/lasboris" target="_blank" aria-label="Написать в Telegram">
       <i class="fab fa-telegram"></i>
@@ -468,10 +381,9 @@
     © 2026 englishlasboris. Все права за мной. А ваша конфиденциальность — под полной защитой.
   </footer>
 
-  <!-- JavaScript -->
+  <!-- Основной JS -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Анимация главного блока
       const hero = document.getElementById('hero');
       if (hero) {
         const observer = new IntersectionObserver(
@@ -487,10 +399,8 @@
         observer.observe(hero);
       }
 
-      // Кнопка "Показать ещё"
       const showMoreBtn = document.getElementById('showMoreBtn');
       const hiddenTestimonials = document.getElementById('hiddenTestimonials');
-
       if (showMoreBtn && hiddenTestimonials) {
         showMoreBtn.addEventListener('click', () => {
           hiddenTestimonials.classList.remove('hidden');
@@ -499,12 +409,78 @@
       }
     });
   </script>
+
+  <!-- Отслеживание кликов в Telegram -->
   <script>
-  document.addEventListener('click', function(e) {
-    if (e.target.closest && e.target.closest('a[href*="t.me"]')) {
-      ym(105985167, 'reachGoal', 'telegram_click');
+    document.addEventListener('click', function(e) {
+      if (e.target.closest && e.target.closest('a[href*="t.me"]')) {
+        ym(105985167, 'reachGoal', 'telegram_click');
+      }
+    });
+  </script>
+
+  <!-- ⬇️ БАННЕР СОГЛАСИЯ — В КОНЦЕ BODY ⬇️ -->
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #222;
+    color: #fff;
+    padding: 16px;
+    text-align: center;
+    font-size: 14px;
+    z-index: 9999;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.6s ease;
+  ">
+    Мы используем cookies для аналитики, чтобы улучшать вебсайт. При этом мы ценим вашу приватность.
+    <a href="https://lasboris.tilda.ws/privacy-policy" target="_blank" style="color: #4fc3f7; text-decoration: underline;">Подробнее</a>  
+    <button id="accept-cookies" style="
+      margin-left: 12px;
+      padding: 4px 12px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    ">Принять</button>
+  </div>
+
+  <script>
+    function loadGA4() {
+      if (window.gtag) return;
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-VH1RV0DC62';
+      document.head.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){ dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', 'G-VH1RV0DC62');
     }
-  });
-</script>
+
+    // Показ баннера
+    if (!localStorage.getItem('cookieConsent')) {
+      const banner = document.getElementById('cookie-banner');
+      banner.style.display = 'block';
+      setTimeout(() => banner.style.opacity = '1', 100);
+    } else {
+      loadGA4();
+    }
+
+    // Клик по "Принять"
+    document.getElementById('accept-cookies')?.addEventListener('click', function() {
+      localStorage.setItem('cookieConsent', 'true');
+      const banner = document.getElementById('cookie-banner');
+      banner.style.opacity = '0';
+      setTimeout(() => banner.style.display = 'none', 600);
+      loadGA4();
+    });
+  </script>
+
 </body>
 </html>
