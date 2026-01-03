@@ -44,12 +44,19 @@
 
   // При нажатии "Принять" — сохраняем согласие и скрываем баннер
   document.getElementById('accept-cookies').addEventListener('click', function() {
-    localStorage.setItem('cookieConsent', 'true');
-    document.getElementById('cookie-banner').style.display = 'none';
-    
-    // Загружаем GA4 только после согласия
-    loadGA4();
-  });
+  localStorage.setItem('cookieConsent', 'true');
+  
+  // Плавное исчезновение
+  const banner = document.getElementById('cookie-banner');
+  banner.style.opacity = '0';
+  banner.style.transition = 'opacity 0.4s ease';
+  setTimeout(() => {
+    banner.style.display = 'none';
+  }, 400);
+  
+  // Загружаем GA4
+  loadGA4();
+});
 
   // Функция загрузки Google Analytics 4
   function loadGA4() {
