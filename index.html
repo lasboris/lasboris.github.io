@@ -9,14 +9,67 @@
 <meta property="og:type" content="website">
   <meta property="og:image" content="https://lasboris.online/img/preview.png">
   <meta charset="UTF-8" />
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VH1RV0DC62"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Cookie Consent Banner -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #222;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
+  z-index: 9999;
+  display: none;
+">
+  Мы используем cookies для аналитики, чтобы улучшать вебсайт. При этом мы ценим вашу приватность.
+  <a href="https://lasboris.tilda.ws/privacy-policy" target="_blank" style="color: #4fc3f7;">Подробнее</a>  
+  <button id="accept-cookies" style="
+    margin-left: 12px;
+    padding: 4px 12px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  ">Принять</button>
+</div>
 
-  gtag('config', 'G-VH1RV0DC62');
+<script>
+  // Показываем баннер, если согласие ещё не дано
+  if (!localStorage.getItem('cookieConsent')) {
+    document.getElementById('cookie-banner').style.display = 'block';
+  }
+
+  // При нажатии "Принять" — сохраняем согласие и скрываем баннер
+  document.getElementById('accept-cookies').addEventListener('click', function() {
+    localStorage.setItem('cookieConsent', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+    
+    // Загружаем GA4 только после согласия
+    loadGA4();
+  });
+
+  // Функция загрузки Google Analytics 4
+  function loadGA4() {
+    if (window.gtag) return; // уже загружено
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager)&&(window).com/gtag/js?id=G-VH1RV0DC62';
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){dataLayer.push(arguments);};
+    gtag('js', new Date());
+    gtag('config', 'G-VH1RV0DC62');
+  }
+
+  // Если согласие уже было — грузим GA4 сразу
+  if (localStorage.getItem('cookieConsent') === 'true') {
+    loadGA4();
+  }
 </script>
   <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
