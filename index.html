@@ -295,9 +295,10 @@
       <p>Хотите попробовать? Оставьте <strong>заявку</strong> ниже, и я свяжусь с вами. Обсудим время встречи для пробного урока.</p>
 
       <form
-        action="https://formspree.io/f/mzznwkrz"
-        method="POST"
-        style="margin-top: 20px;"
+        id="contact-form"
+  action="https://formspree.io/f/mzznwkrz"
+  method="POST"
+  style="margin-top: 20px;"
       >
         <input type="text" name="name" placeholder="Ваше имя" required />
         <input type="email" name="email" placeholder="Ваш email или Telegram" required />
@@ -481,6 +482,26 @@
       loadGA4();
     });
   </script>
+<script>
+  document.getElementById('contact-form')?.addEventListener('submit', function(event) {
+    // Ждём, пока форма отправится (Formspree делает это через fetch под капотом)
+    // Но так как Formspree не даёт прямого success-коллбэка без перезагрузки,
+    // мы отправим событие в GA4 сразу при отправке — это стандартная практика для форм без redirect.
 
+    // Проверим: разрешено ли отслеживание (согласие на cookies)?
+    if (localStorage.getItem('cookieConsent') !== 'true') {
+      return; // GA4 не активна — не отправляем
+    }
+
+    // Отправляем событие в GA4
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_submit', {
+        event_category: 'engagement',
+        event_label: 'contact_form_submitted',
+        value: 1
+      });
+    }
+  });
+</script>
 </body>
 </html>
